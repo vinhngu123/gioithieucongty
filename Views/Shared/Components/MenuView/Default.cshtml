@@ -1,0 +1,90 @@
+﻿@using startup.Utilities
+@model IList<Menu>
+<header>
+
+    <!-- header inner -->
+	<header class="header">
+		<!-- Topbar -->
+		@* <div class="topbar">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-md-5 col-12">
+						<!-- Contact -->
+						<ul class="top-link">
+							<li><a href="#">About</a></li>
+							<li><a href="#">Doctors</a></li>
+							<li><a href="#">Contact</a></li>
+							<li><a href="#">FAQ</a></li>
+						</ul>
+						<!-- End Contact -->
+					</div>
+					<div class="col-lg-6 col-md-7 col-12">
+						<!-- Top Contact -->
+						<ul class="top-contact">
+							<li><i class="fa fa-phone"></i>+880 1234 56789</li>
+							<li><i class="fa fa-envelope"></i><a href="mailto:support@yourmail.com">support@yourmail.com</a></li>
+						</ul>
+						<!-- End Top Contact -->
+					</div>
+				</div>
+			</div>
+		</div>
+		 *@<!-- End Topbar -->
+		<!-- Header Inner -->
+		<div class="header-inner">
+			<div class="container">
+				<div class="inner">
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-12">
+							<!-- Start Logo -->
+							<div class="logo">
+								<a href="~/"><img width="40%" src="~/img/it-high-resolution-logo-transparent.png" alt="#"></a>
+							</div>
+							<!-- End Logo -->
+							<!-- Mobile Nav -->
+							<div class="mobile-nav"></div>
+							<!-- End Mobile Nav -->
+						</div>
+						<div class="col-lg-7 col-md-9 col-12">
+							<!-- Main Menu -->
+							<div class="main-menu">
+								<nav class="navigation">
+									<ul class="nav menu">
+										@foreach(var i in Model)
+										{
+											<li class=""><a href="@i.Link">@i.MenuName </a></li>
+										}
+										
+									</ul>
+								</nav>
+							</div>
+							<!--/ End Main Menu -->
+						</div>
+						<div class="col-lg-2 col-12">
+							<div class="get-quote">
+								@if (@Functions._UserName != "")
+								{
+									<div class="dropdown">
+										<a class="btn btn-secondary dropdown-toggle" asp-area="admin" asp-action="Logoutclient" asp-controller="LoginClient" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+											@Functions._UserName
+										</a>
+
+										<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+											<li><a class="dropdown-item" href="#">Action</a></li>
+											
+										</ul>
+									</div>
+								}
+								else
+								{
+									<a asp-area="admin" asp-action="index" asp-controller="LoginClient"
+									   class="btn">Đăng nhập</a>
+								}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/ End Header Inner -->
+	</header>
